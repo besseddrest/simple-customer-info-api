@@ -1,0 +1,40 @@
+/** Form */
+form {
+}
+
+label {
+    display: block;
+}
+
+input,
+select {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    margin: 0 auto;
+    flex: none;
+}
+
+.form {
+    &__container {
+        border: 2px solid darkgray;
+        border-radius: 15px;
+        text-align: left;
+        padding: 20px;
+    }
+
+    &__flex-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__flex-item {
+        flex: 1 1 100%;
+        padding: 0 10px;
+    }
+
+    &__field {
+    }
+}

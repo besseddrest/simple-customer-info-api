@@ -1,2 +1,5 @@
-# simple-customer-info-api
-Enough planning... I need to get coding!!!
+# Simple Customer Info API
+
+Bootstrapped w React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
