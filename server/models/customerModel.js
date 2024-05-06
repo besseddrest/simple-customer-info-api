@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const customerSchema = new Schema({
+    MessageInformation: { type: messageInfoSchema },
     id: { type: String, required: true },
     firstName: { type: String, required: true },
     middleName: { type: String },
@@ -19,11 +20,15 @@ const customerSchema = new Schema({
     OtherContactInfo: { type: otherContactInfoSchema },
 });
 
+const messageInfoSchema = new Schema({
+    source: { type: String },
+});
+
 const otherContactInfoSchema = new Schema({
     preferredContactMethod: { type: String, enum: ["email", "phone", "post"] },
     phone: { type: phoneSchema },
     alternatePhone: { type: phoneSchema },
-    em[ail: { type: String },
+    email: { type: String },
     preferredLanguage: { type: String },
 });
 

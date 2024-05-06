@@ -6,9 +6,9 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Non negosh requirements:
 
--   API documentation accessible at `/ui`
+-   API documentation accessible at `/ui` x
     -   needs grooming
--   create API & logic
+-   create API x & logic
     -   refactor API to follow REST best practices?
 -   unit tests, BDD
 -   docker image/container
