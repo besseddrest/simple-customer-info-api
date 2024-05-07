@@ -1,6 +1,7 @@
 import { useForm, FormProvider } from "react-hook-form";
 import ContactInfo from "./ContactInfo";
 import PersonalInfo from "./PersonalInfo";
+import { addCustomer } from "../../services/customerService";
 
 export default function NewCustomerForm() {
     const methods = useForm();
@@ -23,9 +24,18 @@ export default function NewCustomerForm() {
         </FormProvider>
     );
 
-    function onSubmit(data) {
-        // ev.preventDefault();
-        console.log("Form submitted");
-        console.log(data);
+    async function onSubmit(data) {
+        try {
+            const response = await addCustomer(data);
+
+            if (response) {
+                console.log(response);
+            }
+            // if (response.ok) {
+            //     console.log("Successfully added customer");
+            // }
+        } catch (err) {
+            console.error("Failed to submit form data: ", err);
+        }
     }
 }

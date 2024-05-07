@@ -4,14 +4,22 @@ export default function PersonalInfo() {
     const { register } = useFormContext();
     return (
         <>
-            <div className="form__field form__field--hidden">
+            <div className="form__field">
+                <label htmlFor="source">Source</label>
+                <input
+                    id="source"
+                    type="text"
+                    {...register("source")}
+                    defaultValue="NewCustomerForm"
+                />
+            </div>
+            <div className="form__field">
                 <label htmlFor="uuid">ID</label>
                 <input
                     id="uuid"
                     type="text"
                     {...register("uuid")}
-                    defaultValue=""
-                    disabled={true}
+                    defaultValue="1234567890"
                 />
             </div>
             <div className="form__field">
