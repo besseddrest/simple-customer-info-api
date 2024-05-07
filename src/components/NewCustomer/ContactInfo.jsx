@@ -1,8 +1,9 @@
 import { useFormContext } from "react-hook-form";
 import PhoneInfo from "./PhoneInfo";
 
-export default function ContactInfo() {
+export default function ContactInfo(props) {
     const { register } = useFormContext();
+    const { errors } = props;
 
     return (
         <>
@@ -12,7 +13,6 @@ export default function ContactInfo() {
                 </label>
                 <select
                     id="preferredContactMethod"
-                    defaultValue=""
                     {...register("preferredContactMethod")}
                 >
                     <option value="">Select Contact Method</option>
@@ -20,6 +20,11 @@ export default function ContactInfo() {
                     <option value="phone">Phone</option>
                     <option value="post">Post</option>
                 </select>
+                <div className="form__field-error">
+                    {errors && errors.preferredContactMethod
+                        ? errors.preferredContactMethod
+                        : ""}
+                </div>
             </div>
 
             <PhoneInfo priority="primary" />
@@ -35,6 +40,9 @@ export default function ContactInfo() {
                     defaultValue=""
                     placeholder="example@example.com"
                 />
+                <div className="form__field-error">
+                    {errors && errors.email ? errors.email : ""}
+                </div>
             </div>
             <div className="form__field">
                 <label htmlFor="preferredLanguage">Preferred Language:</label>

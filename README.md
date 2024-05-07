@@ -8,7 +8,7 @@ Non negosh requirements:
 
 -   API documentation accessible at `/ui` x
     -   needs grooming
--   create API x & logic
+-   create APxI x & logic
     -   refactor API to follow REST best practices?
 -   unit tests, BDD
 -   docker image/container
@@ -18,8 +18,8 @@ whats left:
 
 -   submit form x
 -   search form
--   api logic
--   validation
+-   api logic x
+-   validation x
 -   unit test
 
 kee

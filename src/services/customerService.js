@@ -8,14 +8,11 @@ async function addCustomer(data) {
             body: JSON.stringify(data),
         });
 
-        const responseData = await response.json();
+        let responseData = await response.json();
 
-        if (!response.ok) {
-            throw new Error(
-                responseData.errors.map((err) => err.message).join(", "),
-            );
-        }
+        return responseData;
     } catch (err) {
+        console.log("caught at addCustomer");
         console.error("Failed to add customer: ", err);
         throw err;
     }
