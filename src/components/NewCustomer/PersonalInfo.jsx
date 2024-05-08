@@ -1,8 +1,16 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 
 export default function PersonalInfo(props) {
+    const [uuid, setUuid] = useState("");
     const { register } = useFormContext();
     const { errors } = props;
+
+    useEffect(() => {
+        setUuid(uuidv4());
+    }, []);
     return (
         <>
             <div className="form__field form__field--hidden">
@@ -18,12 +26,12 @@ export default function PersonalInfo(props) {
                 </div>
             </div>
             <div className="form__field form__field--hidden">
-                <label htmlFor="uuid">ID</label>
+                <label htmlFor="id">ID</label>
                 <input
-                    id="uuid"
+                    id="id"
                     type="text"
-                    {...register("uuid")}
-                    defaultValue="1234567890"
+                    {...register("id")}
+                    defaultValue={uuid}
                 />
                 <div className="form__field-error">
                     {errors && errors.id ? errors.id : ""}

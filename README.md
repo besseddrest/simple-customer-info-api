@@ -16,12 +16,14 @@ Non negosh requirements:
 
 whats left:
 
--   submit form x
+-   customer form
+    -   post success x
+    -   validation x
+    -   post - fail on idential UUID
 -   search form
+    -   get success
+    -   display results
 -   api logic x
 -   validation x
 -   unit test
-
-kee
-
--   microservice mindset
+-   review OpenAPI doc

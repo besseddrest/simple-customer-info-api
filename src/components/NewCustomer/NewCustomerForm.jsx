@@ -10,7 +10,7 @@ export default function NewCustomerForm() {
         errors: [],
     });
     const methods = useForm();
-    console.log("ERRORS: ", errors);
+
     return (
         <FormProvider {...methods}>
             <form
@@ -36,19 +36,15 @@ export default function NewCustomerForm() {
 
             if (response) {
                 if (response.ok) {
-                    console.log(
-                        "we have a response, but is it failed validation?",
-                    );
+                    // We successfully added a customer
                     console.log(response);
                 } else {
+                    // The form submission did not pass validation
                     setErrors({ ...response });
                 }
             }
         } catch (err) {
             console.log(err);
-            console.log(
-                "How do i know this was handled properly, if not by text color?",
-            );
             console.error("Failed to submit form data: ", err);
         }
     }

@@ -1,7 +1,14 @@
 import { Customer } from "../models/customerModel.js";
 
 export default function processNewCustomerData(req, res, next) {
-    // [HC] we can leverage Mongoose validation capabilities here
+    if (checkIfExists(req.body.id, req.mockResponseData)) {
+        return res.status(409).json({
+            message: "Validation failed",
+            errors: [{ id: "A customer with this UUID already exists." }],
+        });
+    }
+
+    // [HC] we can leverage Mongoose validation here
     const transformedData = transformData(req.body);
     const newCustomer = new Customer(transformedData);
     const validationError = newCustomer.validateSync();
@@ -22,13 +29,17 @@ export default function processNewCustomerData(req, res, next) {
     next();
 }
 
+function checkIfExists(uuid, customerList) {
+    return customerList.data.find((record) => record.id === uuid);
+}
+
 function transformData(formData) {
     console.log("FORMDATA: ", formData);
     return {
         MessageInformation: {
             source: formData.source,
         },
-        id: formData.uuid, // TODO: generate this on form load, right now hard coded
+        id: formData.id,
         firstName: formData.firstName,
         middleName: formData.middleName,
         lastName: formData.lastName,

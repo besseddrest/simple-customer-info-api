@@ -18,4 +18,18 @@ async function addCustomer(data) {
     }
 }
 
-export { addCustomer };
+async function getCustomers() {
+    try {
+        const response = await fetch("/api/v1/CustomerInfo");
+        const responseData = await response.json();
+
+        if (responseData) {
+            return responseData;
+        }
+    } catch (err) {
+        console.error("GET customers failed: ", err);
+        throw err;
+    }
+}
+
+export { addCustomer, getCustomers };
