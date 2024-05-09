@@ -5,13 +5,12 @@ import swaggerUi from "swagger-ui-express";
 import fs from "fs";
 import processNewCustomerData from "./middleware/processNewCustomerData.js";
 import YAML from "yamljs";
-import { Customer } from "./models/customerModel.js";
-const PORT = process.env.PORT || 5000;
-
-// [HC] No db requirement, will use hardcoded data
-// `assert` should be valid, though eslint may flag it
-import mockResponseData from "./data/mock/customers.json" assert { type: "json" };
 import { filterCustomers } from "./utils/utils.js";
+import mockResponseData from "./data/mock/customers.json" assert { type: "json" };
+
+const PORT = process.env.PORT || 8080;
+const file = fs.readFileSync("./openapi.yaml", "utf8");
+const swaggerDocument = YAML.parse(file);
 
 app.use(cors());
 app.use(express.json());
@@ -21,12 +20,8 @@ app.use((req, res, next) => {
     next();
 });
 
-const file = fs.readFileSync("./openapi.yaml", "utf8");
-const swaggerDocument = YAML.parse(file);
-
 app.use("/ui", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// [HC] ideally I'd follow a more RESTful naming convention, so `/api/v1/customers`
 app.get("/api/v1/CustomerInfo", (req, res) => {
     let list = [...mockResponseData.data];
 
@@ -38,7 +33,6 @@ app.get("/api/v1/CustomerInfo", (req, res) => {
 });
 
 app.post("/api/v1/CustomerInfo", processNewCustomerData, (req, res) => {
-    // const newCustomer = new Customer(req.customerData);
     const existingRecords = [...req.mockResponseData.data];
     existingRecords.push(req.customerData);
 

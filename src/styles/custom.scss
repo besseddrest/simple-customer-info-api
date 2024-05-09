@@ -15,6 +15,15 @@ button[type="submit"] {
     margin: 0 auto;
     flex: none;
 }
+.status__box {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: pink;
+    border: 2px solid red;
+    border-radius: 15px;
+    color: #cc0033;
+    font-weight: bold;
+}
 
 .form {
     &__container {

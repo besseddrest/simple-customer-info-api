@@ -1,0 +1,30 @@
+export const testCustomer = {
+    messageInformation: { source: "NewCustomerForm" },
+    id: "898e2368-5555-4120-93e9-fa54612e1a81",
+    firstName: "Tony",
+    middleName: "Keith",
+    lastName: "Gwynn",
+    dateOfBirth: "1960-05-09",
+    gender: "Male",
+    county: "San Diego",
+    fixedAddress: "false",
+    assistanceWithInsurance: "true",
+    familyPlanningBenefits: "false",
+    OtherContactInfo: {
+        preferredContactMethod: "email",
+        phone: {
+            areaCode: "",
+            preFix: "",
+            lineNumber: "",
+            phoneType: "",
+        },
+        alternatePhone: {
+            areaCode: "",
+            preFix: "",
+            lineNumber: "",
+            phoneType: "",
+        },
+        email: "tgwynn@padres.com",
+        preferredLanguage: "Contact hitting",
+    },
+};

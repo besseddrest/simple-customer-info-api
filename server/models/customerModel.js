@@ -27,9 +27,9 @@ const otherContactInfoSchema = new Schema({
         type: String,
         validate: {
             validator: function (value) {
-                return (
-                    value !== "" &&
-                    value.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)
+                // Using a regular expression that is commonly recommended for validating email addresses.
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(
+                    value,
                 );
             },
             message: "The email given must be valid",
@@ -39,7 +39,7 @@ const otherContactInfoSchema = new Schema({
 });
 
 const customerSchema = new Schema({
-    MessageInformation: {
+    messageInformation: {
         type: messageInfoSchema,
     },
     id: { type: String, required: [true, "uuid is required."], minlength: 1 },
@@ -72,7 +72,7 @@ const customerSchema = new Schema({
     },
     fixedAddress: {
         type: Boolean,
-        required: [true, "fixedAddress is required."],
+        required: [true, "fixedAddress is required"],
         set: (value) => {
             if (typeof value === "string" && value !== "") {
                 return value.toLowerCase() === "true"; // Convert string 'true'/'false' to boolean
@@ -82,7 +82,7 @@ const customerSchema = new Schema({
     },
     assistanceWithInsurance: {
         type: Boolean,
-        required: [true, "assistanceWithInsurance is required."],
+        required: [true, "assistanceWithInsurance is required"],
         set: (value) => {
             if (typeof value === "string" && value !== "") {
                 return value.toLowerCase() === "true";
@@ -92,7 +92,7 @@ const customerSchema = new Schema({
     },
     familyPlanningBenefits: {
         type: Boolean,
-        required: [true, "familyPlanningBenefits is required."],
+        required: [true, "familyPlanningBenefits is required"],
         set: (value) => {
             if (typeof value === "string" && value !== "") {
                 return value.toLowerCase() === "true";

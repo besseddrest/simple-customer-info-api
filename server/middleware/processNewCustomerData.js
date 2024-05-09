@@ -4,11 +4,11 @@ export default function processNewCustomerData(req, res, next) {
     if (checkIfExists(req.body.id, req.mockResponseData)) {
         return res.status(409).json({
             message: "Validation failed",
-            errors: [{ id: "A customer with this UUID already exists." }],
+            errors: [{ id: "A customer with this UUID already exists" }],
         });
     }
 
-    // [HC] we can leverage Mongoose validation here
+    // HC: we can leverage Mongoose validation here
     const transformedData = transformData(req.body);
     const newCustomer = new Customer(transformedData);
     const validationError = newCustomer.validateSync();
@@ -22,21 +22,24 @@ export default function processNewCustomerData(req, res, next) {
             {},
         );
 
-        return res.status(400).json({ message: "Validation failed", errors });
+        return res.status(400).json({
+            message: "Validation failed, please address errors below.",
+            errors,
+        });
     }
 
     req.customerData = transformedData;
     next();
 }
 
-function checkIfExists(uuid, customerList) {
+export function checkIfExists(uuid, customerList) {
     return customerList.data.find((record) => record.id === uuid);
 }
 
-function transformData(formData) {
-    console.log("FORMDATA: ", formData);
+// Adjust data to resemble schema, so we can compare against model
+export function transformData(formData) {
     return {
-        MessageInformation: {
+        messageInformation: {
             source: formData.source,
         },
         id: formData.id,

@@ -1,3 +1,4 @@
+// HC: used in Search/Search Results
 export function filterCustomers(filterVal, inputVal, sourceList) {
     if (inputVal === "") {
         return sourceList;

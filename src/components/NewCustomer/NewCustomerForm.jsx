@@ -13,6 +13,9 @@ export default function NewCustomerForm() {
 
     return (
         <FormProvider {...methods}>
+            {errors && errors.message !== "" && (
+                <div className="status__box">{errors.message}</div>
+            )}
             <form
                 className="form__container"
                 onSubmit={methods.handleSubmit(onSubmit)}
