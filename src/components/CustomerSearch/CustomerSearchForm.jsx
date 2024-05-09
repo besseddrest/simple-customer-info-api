@@ -78,7 +78,6 @@ export default function CustomerSearchForm() {
             );
 
             if (response) {
-                console.log("GET clientside: ", response);
                 setCustomerList([...response]);
             }
         } catch (err) {

@@ -43,7 +43,7 @@ app.post("/api/v1/CustomerInfo", processNewCustomerData, (req, res) => {
 
     mockResponseData.data = existingRecords;
 
-    res.json({
+    res.status(201).json({
         message: "Customer was added successfully.",
         receivedData: data,
     });

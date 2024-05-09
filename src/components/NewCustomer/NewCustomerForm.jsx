@@ -42,13 +42,11 @@ export default function NewCustomerForm() {
                     // We successfully added a customer
                     console.log(response);
                 } else {
-                    console.log("ERRORS: ", response);
                     // The form submission did not pass validation
                     setErrors({ ...response });
                 }
             }
         } catch (err) {
-            console.log(err);
             console.error("Failed to submit form data: ", err);
         }
     }
