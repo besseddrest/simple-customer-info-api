@@ -12,15 +12,16 @@ async function addCustomer(data) {
 
         return responseData;
     } catch (err) {
-        console.log("caught at addCustomer");
         console.error("Failed to add customer: ", err);
         throw err;
     }
 }
 
-async function getCustomers() {
+async function getCustomers(filter, value) {
     try {
-        const response = await fetch("/api/v1/CustomerInfo");
+        const response = await fetch(
+            "/api/v1/CustomerInfo?" + new URLSearchParams({ filter, value }),
+        );
         const responseData = await response.json();
 
         if (responseData) {

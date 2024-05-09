@@ -19,8 +19,7 @@ const phoneSchema = new Schema({
 const otherContactInfoSchema = new Schema({
     preferredContactMethod: {
         type: String,
-        enum: ["email", "phone", "post"],
-        minlength: 1,
+        enum: ["", "email", "phone", "post"],
     },
     phone: { type: phoneSchema },
     alternatePhone: { type: phoneSchema },

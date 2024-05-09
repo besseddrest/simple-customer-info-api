@@ -16,14 +16,17 @@ Non negosh requirements:
 
 whats left:
 
--   customer form
-    -   post success x
-    -   validation x
-    -   post - fail on idential UUID
--   search form
-    -   get success
-    -   display results
--   api logic x
--   validation x
+-   customer formx
+    -   x post success x
+    -   x validation x
+    -   x post - fail on idential UUIDx
+    -   display overall status error msg
+-   search formx
+    -   x get successx
+    -   x display resultsx
+    -   x filter logic
+-   x api logic x
+-   x validation x
 -   unit test
 -   review OpenAPI doc
+-   containerize

@@ -4,13 +4,10 @@ import { useFormContext } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 
 export default function PersonalInfo(props) {
-    const [uuid, setUuid] = useState("");
+    const [uuid, setUuid] = useState(uuidv4());
     const { register } = useFormContext();
     const { errors } = props;
 
-    useEffect(() => {
-        setUuid(uuidv4());
-    }, []);
     return (
         <>
             <div className="form__field form__field--hidden">
