@@ -15,7 +15,7 @@ export default function CustomerSearchForm() {
             >
                 <div className="form__flex-wrapper">
                     <fieldset className="form__flex-item form__fieldset">
-                        <legend>Search by:</legend>
+                        <legend>Filter</legend>
                         <div>
                             <label htmlFor="nameFilter">
                                 <input

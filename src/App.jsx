@@ -10,6 +10,9 @@ function App() {
             <h1>Simple Customer Info API</h1>
             <ul className="nav">
                 <li>
+                    <strong>Pages:</strong>
+                </li>
+                <li>
                     <Link to="/">New Customer Form</Link>
                 </li>
                 <li>
