@@ -18,6 +18,11 @@ function App() {
                 <li>
                     <Link to="/search">Search Customers</Link>
                 </li>
+                <li>
+                    <a href="/ui" target="_blank">
+                        API Documentation
+                    </a>
+                </li>
             </ul>
 
             <Routes>

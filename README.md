@@ -2,6 +2,12 @@
 
 Apologies for delayed submission. I wanted to make sure I hit all requirements. This is a comprehensive take home test, but I had fun working on it.
 
+## Startup
+
+-   ./run_docker.sh
+-   the frontend is at http://0.0.0.0:5173
+-   the backend is at port 5000, not 8080 (conflicts with my own nginx config)
+
 ## Notes/Design Decisions
 
 Some decisions I made in the interest of time, or for consistency:

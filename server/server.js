@@ -8,7 +8,7 @@ import YAML from "yamljs";
 import { filterCustomers } from "./utils/utils.js";
 import mockResponseData from "./data/mock/customers.json" assert { type: "json" };
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 const file = fs.readFileSync("./openapi.yaml", "utf8");
 const swaggerDocument = YAML.parse(file);
 
@@ -50,5 +50,5 @@ app.post("/api/v1/CustomerInfo", processNewCustomerData, (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://0.0.0.0:${PORT}`);
 });

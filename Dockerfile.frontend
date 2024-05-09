@@ -1,0 +1,9 @@
+FROM node:20-alpine
+WORKDIR /simple-customer-info-api
+
+# Just set up the environment, assume node_modules comes from a volume
+COPY src/ ./src
+
+# Serve using Vite
+CMD ["yarn", "dev"]
+EXPOSE 5173
